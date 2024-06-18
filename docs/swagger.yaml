@@ -1,0 +1,173 @@
+openapi: 3.0.0
+info:
+  title: bep-backend-apis
+  description: API Documentation for Backend Services
+  version: 1.0.0
+paths:
+  /api/signup:
+    post:
+      summary: Signup Form Submission
+      description: |
+        This endpoint allows users to perform signup.
+
+        **Example:**
+        - **parent_reg_number:** Ex. 7675836655
+        - **parent_password:** Ex. 1111
+        - **parent_name:** Ex. Brane
+        - **parent_surname:** Ex. Edu
+        - **parent_alternate_number:** Ex. 6303355203
+        - **parent_email:** Ex. brane@gmail.com
+        - **country:** Ex. India
+        - **pincode:** Ex. 996544
+        - **state:** Ex. Telangana
+        - **city:** Ex. Hyderabad
+        - **district:** Ex. Ranga Reddy District
+        - **mother_tongue:** Ex. telugu
+
+        **Child details:**
+        - **name:** Ex. Omer
+        - **dob:** Ex. 2013-01-27
+        - **gender:** Ex. Male
+        - **class:** Ex. X
+        - **curriculum:** Ex. CBSE
+        - **school:** Ex. Frobels
+        - **medium_of_instruction:** Ex. english
+        - **first_language:** Ex. english
+        - **second_language:** Ex. hindi
+        - **third_language:** Ex. telugu
+        - **password:** Ex. 2222
+        - **image_url:** Ex. https://braneeducation.s3.ap-south-1.amazonaws.com/face_images/7901063698_1.jpg
+        - **audio_url:** Ex. "https://braneeducation.s3.ap-south-1.amazonaws.com/face_images/7901063698_1.mp3"
+        - **tier:** Ex. free
+        - **subscription_start_date:** Ex. 2024-01-01
+        - **subscribe_end_date:** Ex. 2024-12-31
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                parent_reg_number:
+                  type: string
+                  description: Parent's mobile number
+                parent_password:
+                  type: string
+                  description: 4 digit parent password
+                parent_name:
+                  type: string
+                  description: Parent's name
+                parent_surname:
+                  type: string
+                  description: Confirmation of parent's surname
+                parent_alternate_number:
+                  type: string
+                  description: Parent's alternate mobile number
+                parent_email:
+                  type: string
+                  description: Parent's email
+                country:
+                  type: string
+                  description: Country information
+                pincode:
+                  type: string
+                  description: Pincode information
+                state:
+                  type: string
+                  description: State information
+                city:
+                  type: string
+                  description: City information
+                district:
+                  type: string
+                  description: District information
+                mother_tongue:
+                  type: string
+                  description: Mother tongue information
+                child:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                        description: Child's name
+                      dob:
+                        type: string
+                        format: date
+                        description: Child's date of birth
+                      gender:
+                        type: string
+                        description: Child's gender
+                      class:
+                        type: string
+                        description: Child's class
+                      curriculum:
+                        type: string
+                        description: Child's syllabus
+                      school:
+                        type: string
+                        description: Child's school
+                      medium_of_instruction:
+                        type: string
+                        description: Medium of instruction
+                      first_language:
+                        type: string
+                        description: First language
+                      second_language:
+                        type: string
+                        description: Second language
+                      third_language:
+                        type: string
+                        description: Third language
+                      password:
+                        type: string
+                        description: Child's password
+                      image_url:
+                        type: string
+                        description: URL of child's image
+                      audio_url:
+                        type: string
+                        description: URL of child's audio
+                      tier:
+                        type: string
+                        description: Subscription tier
+                      subscription_start_date:
+                        type: string
+                        format: date
+                        description: Subscription start date
+                      subscribe_end_date:
+                        type: string
+                        format: date
+                        description: Subscription end date
+      responses:
+        200:
+          description: Signup successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  _id:
+                    type: string
+                    description: Unique identifier for the signup
+        400:
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Error message detailing the bad request
+        500:
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Error message detailing the server error

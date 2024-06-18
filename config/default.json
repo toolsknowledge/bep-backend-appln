@@ -1,0 +1,6 @@
+{
+    "mongoURI": "mongodb+srv://admin:admin@cluster0.jgnmk.mongodb.net/bep-db?retryWrites=true&w=majority&appName=Cluster0",
+    "jwtSecret": "He39zDQW7RdkOcxe3L9qvoSQ/ef40BG6Ro4hrHDjE+U="
+  }
+  
+  
